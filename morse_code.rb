@@ -35,7 +35,7 @@ CODE = {
   '---..' => '8',
   '----.' => '9',
   '-----' => '0'
-}
+}.freeze
 
 def decode_char(str)
   char = CODE[str]
@@ -47,18 +47,17 @@ def decode_word(str)
   chars.each do |char|
     decode_char(char)
   end
-end 
+end
 
 def decode(str)
   words = str.split('   ')
-  pword = ''
   words.each do |word|
     decode_word(word).to_s
     print ' '
   end
-  puts pword
+  puts
 end
 
-decode("-- -.--   -. .- -- .")
+decode('-- -.--   -. .- -- .')
 
-decode(".-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
+decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
